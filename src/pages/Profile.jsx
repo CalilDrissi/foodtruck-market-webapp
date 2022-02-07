@@ -20,11 +20,8 @@ import homeIcon from '../assets/svg/homeIcon.svg'
 
 
 
-
-
-
 function Profile() {
-  const auth = getAuth()
+  const auth = getAuth();
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(null)
   const [changeDetails, setChangeDetails] = useState(false)
@@ -109,13 +106,6 @@ function Profile() {
   }
 
   const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`)
-
-
-
-
-
-
-
 
 
   return (

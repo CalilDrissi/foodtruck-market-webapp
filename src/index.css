@@ -94,6 +94,9 @@ button {
 .explore {
   margin: 1rem;
 }
+
+
+
 @media (min-width: 1024px) {
   .pageContainer,
   .offers,
