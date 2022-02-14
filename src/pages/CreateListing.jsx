@@ -17,6 +17,9 @@ function CreateListing() {
   // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(true)
   const [loading, setLoading] = useState(false)
+
+//   ##### this is where I'm at now##### 
+
   const [formData, setFormData] = useState({
     type: 'rent',
     name: '',
@@ -33,6 +36,7 @@ function CreateListing() {
     longitude: 0,
   })
 
+  
   const {
     type,
     name,

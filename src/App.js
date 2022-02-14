@@ -16,7 +16,7 @@ import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
-// import CreateListing from "./pages/CreateListing";
+import CreateListing from "./pages/CreateListing";
 // import EditListing from "./pages/EditListing";
 // import Listing from "./pages/Listing";
 // import Contact from "./pages/Contact";
@@ -38,6 +38,8 @@ function App() {
             <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
+          {/* not private route because you access it from profile page */}
+          <Route path='/create-listing' element={<CreateListing />} />
         </Routes>
         <Navbar />
       </Router>
