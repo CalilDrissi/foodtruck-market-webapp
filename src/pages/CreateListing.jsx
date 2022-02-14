@@ -14,19 +14,17 @@ import { v4 as uuidv4 } from 'uuid'
 import Spinner from '../components/Spinner'
 
 function CreateListing() {
+
+
   // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(true)
   const [loading, setLoading] = useState(false)
 
-//   ##### this is where I'm at now##### 
 
   const [formData, setFormData] = useState({
     type: 'rent',
     name: '',
-    bedrooms: 1,
-    bathrooms: 1,
-    parking: false,
-    furnished: false,
+    description: '',
     address: '',
     offer: false,
     regularPrice: 0,
@@ -40,10 +38,7 @@ function CreateListing() {
   const {
     type,
     name,
-    bedrooms,
-    bathrooms,
-    parking,
-    furnished,
+    description,
     address,
     offer,
     regularPrice,
@@ -74,6 +69,7 @@ function CreateListing() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMounted])
 
+  //on Submit ############################################
   const onSubmit = async (e) => {
     e.preventDefault()
 
@@ -217,6 +213,8 @@ function CreateListing() {
     return <Spinner />
   }
 
+// JSX STARTS HERE 
+//########################################################
   return (
     <div className='profile'>
       <header>
@@ -258,87 +256,17 @@ function CreateListing() {
             minLength='10'
             required
           />
+         
+         <label className='formLabel'>Description</label>
+          <textarea
+            className='formInputAddress'
+            type='text'
+            id='description'
+            value={description}
+            onChange={onMutate}
+            required
+          />
 
-          <div className='formRooms flex'>
-            <div>
-              <label className='formLabel'>Bedrooms</label>
-              <input
-                className='formInputSmall'
-                type='number'
-                id='bedrooms'
-                value={bedrooms}
-                onChange={onMutate}
-                min='1'
-                max='50'
-                required
-              />
-            </div>
-            <div>
-              <label className='formLabel'>Bathrooms</label>
-              <input
-                className='formInputSmall'
-                type='number'
-                id='bathrooms'
-                value={bathrooms}
-                onChange={onMutate}
-                min='1'
-                max='50'
-                required
-              />
-            </div>
-          </div>
-
-          <label className='formLabel'>Parking spot</label>
-          <div className='formButtons'>
-            <button
-              className={parking ? 'formButtonActive' : 'formButton'}
-              type='button'
-              id='parking'
-              value={true}
-              onClick={onMutate}
-              min='1'
-              max='50'
-            >
-              Yes
-            </button>
-            <button
-              className={
-                !parking && parking !== null ? 'formButtonActive' : 'formButton'
-              }
-              type='button'
-              id='parking'
-              value={false}
-              onClick={onMutate}
-            >
-              No
-            </button>
-          </div>
-
-          <label className='formLabel'>Furnished</label>
-          <div className='formButtons'>
-            <button
-              className={furnished ? 'formButtonActive' : 'formButton'}
-              type='button'
-              id='furnished'
-              value={true}
-              onClick={onMutate}
-            >
-              Yes
-            </button>
-            <button
-              className={
-                !furnished && furnished !== null
-                  ? 'formButtonActive'
-                  : 'formButton'
-              }
-              type='button'
-              id='furnished'
-              value={false}
-              onClick={onMutate}
-            >
-              No
-            </button>
-          </div>
 
           <label className='formLabel'>Address</label>
           <textarea
