@@ -41,6 +41,10 @@ function App() {
           <Route path='/category/:categoryName' element={<Category />} />
           {/* not private route because you access it from profile page */}
           <Route path='/create-listing' element={<CreateListing />} />
+          <Route
+            path='/category/:categoryName/:listingId'
+            element={<Listing />}
+          />
         </Routes>
         <Navbar />
       </Router>
