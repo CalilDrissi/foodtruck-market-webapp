@@ -18,16 +18,11 @@ import ListingItem from '../components/ListingItem'
 import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg'
 import homeIcon from '../assets/svg/homeIcon.svg'
 
-
-
 function Profile() {
-  const auth = getAuth();
+  const auth = getAuth()
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(null)
   const [changeDetails, setChangeDetails] = useState(false)
-
-
-  
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -109,7 +104,6 @@ function Profile() {
   }
 
   const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`)
-
 
   return (
     <div className='profile'>

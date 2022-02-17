@@ -10,19 +10,14 @@ import 'swiper/swiper-bundle.css'
 import shareIcon from '../assets/svg/shareIcon.svg'
 import Spinner from '../components/Spinner'
 
-
-
 import { getDoc, doc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { db } from '../firebase.config'
-
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 
 
-
- 
 function Listing() {
   const [listing, setListing] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -32,6 +27,8 @@ function Listing() {
   const params = useParams()
   const auth = getAuth()
 
+
+  
   useEffect(() => {
     const fetchListing = async () => {
       const docRef = doc(db, 'listings', params.listingId)
@@ -105,21 +102,6 @@ function Listing() {
           </p>
         )}
 
-        <ul className='listingDetailsList'>
-          <li>
-            {listing.bedrooms > 1
-              ? `${listing.bedrooms} Bedrooms`
-              : '1 Bedroom'}
-          </li>
-          <li>
-            {listing.bathrooms > 1
-              ? `${listing.bathrooms} Bathrooms`
-              : '1 Bathroom'}
-          </li>
-          <li>{listing.parking && 'Parking Spot'}</li>
-          <li>{listing.furnished && 'Furnished'}</li>
-        </ul>
-
         <p className='listingLocationTitle'>Location</p>
 
         <div className='leafletContainer'>
@@ -147,7 +129,7 @@ function Listing() {
             to={`/contact/${listing.userRef}?listingName=${listing.name}`}
             className='primaryButton'
           >
-            Contact Landlord
+            Contact Saler
           </Link>
         )}
       </div>
